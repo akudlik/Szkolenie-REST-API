@@ -40,7 +40,7 @@ namespace REST.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddApiVersioning(options => options.ApiVersionReader = new HeaderApiVersionReader("api-version"));
+            services.AddApiVersioning(options => options.ApiVersionReader = new MediaTypeApiVersionReader("v"));
             services.AddVersionedApiExplorer(
                 options =>
                 {
