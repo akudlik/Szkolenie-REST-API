@@ -33,7 +33,7 @@ namespace REST.API.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var result = _usersList.OrderBy(s=>s.Created).Where(s=>s.Created>=userFilter.Created).Take(userFilter.Limit).ToList();
+            var result = _usersList.OrderBy(s=>s.UserId).Where(s=>s.UserId>userFilter.AfterId).Take(userFilter.Limit).ToList();
 
             Response.Headers.Add(new KeyValuePair<string, StringValues>("Count", _usersList.Count().ToString()));
 
@@ -53,9 +53,9 @@ namespace REST.API.Controllers
         public int Limit { get; set; }
 
         /// <summary>
-        /// Filter by created time
+        /// Filter by Id
         /// </summary>
         [Required]
-        public DateTime Created { get; set; }
+        public int AfterId { get; set; }
     }
 }
