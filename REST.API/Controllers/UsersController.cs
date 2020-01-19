@@ -33,7 +33,7 @@ namespace REST.API.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var result = _usersList.Skip(userFilter.Offset).Take(userFilter.Limit).ToList();
+            var result = _usersList.OrderBy(s=>s.Created).Where(s=>s.Created>=userFilter.Created).Take(userFilter.Limit).ToList();
 
             Response.Headers.Add(new KeyValuePair<string, StringValues>("Count", _usersList.Count().ToString()));
 
@@ -50,13 +50,12 @@ namespace REST.API.Controllers
         /// Number of item on page
         /// </summary>
         [Required]
-        [Range(1, 100)]
         public int Limit { get; set; }
 
         /// <summary>
-        /// Number of item to skip
+        /// Filter by created time
         /// </summary>
         [Required]
-        public int Offset { get; set; }
+        public DateTime Created { get; set; }
     }
 }

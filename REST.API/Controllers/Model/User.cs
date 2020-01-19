@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using REST.API.SeedWork;
 
@@ -48,6 +49,12 @@ namespace REST.API.Controllers.Model
         [MaxLength(100)]
         [MinLength(3)]
         public string Login { get; set; }
+        
+        /// <summary>
+        /// User login to app
+        /// </summary>
+        [ReadOnly(true)]
+        public DateTime Created { get; set; }
 
         public static IEnumerable<User> GetSampleUsers()
         {
@@ -60,7 +67,8 @@ namespace REST.API.Controllers.Model
                     Email = "test@test.pl",
                     Login = "login",
                     FirstName = "Jan",
-                    LastName = "Kowalski"
+                    LastName = "Kowalski",
+                    Created= DateTime.Parse("2020-01-01")
                 },
                 new User
                 {
@@ -69,7 +77,8 @@ namespace REST.API.Controllers.Model
                     Email = "test@test.pl",
                     Login = "login",
                     FirstName = "Jan",
-                    LastName = "Kowalski"
+                    LastName = "Kowalski",
+                    Created= DateTime.Parse("2020-01-02")
                 },
                 new User
                 {
@@ -78,7 +87,8 @@ namespace REST.API.Controllers.Model
                     Email = "test@test.pl",
                     Login = "login",
                     FirstName = "Jan",
-                    LastName = "Kowalski"
+                    LastName = "Kowalski",
+                    Created= DateTime.Parse("2020-01-02")
                 },
                 new User
                 {
@@ -87,7 +97,8 @@ namespace REST.API.Controllers.Model
                     Email = "test@test.pl",
                     Login = "login",
                     FirstName = "Jan",
-                    LastName = "Kowalski"
+                    LastName = "Kowalski",
+                    Created= DateTime.Parse("2020-01-03")
                 },
                 new User
                 {
@@ -96,7 +107,8 @@ namespace REST.API.Controllers.Model
                     Email = "test@test.pl",
                     Login = "login",
                     FirstName = "Jan",
-                    LastName = "Kowalski"
+                    LastName = "Kowalski",
+                    Created= DateTime.Parse("2020-01-04")
                 },
                 new User
                 {
@@ -105,7 +117,8 @@ namespace REST.API.Controllers.Model
                     Email = "test@test.pl",
                     Login = "login",
                     FirstName = "Jan",
-                    LastName = "Kowalski"
+                    LastName = "Kowalski",
+                    Created= DateTime.Parse("2020-01-05")
                 }
             };
         }
