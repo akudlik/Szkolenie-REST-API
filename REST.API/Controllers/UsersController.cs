@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
+using LhsBracketParser;
+using LhsBracketParser.LinqProvider;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using REST.API.Controllers.Model;
@@ -34,11 +38,13 @@ namespace REST.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (!string.IsNullOrEmpty(userFilter.Login))
-                _usersList = _usersList.Where(s => s.Login.Contains(userFilter.Login));
+            var evaluator = new LinqExpressionEvaluator<User>();
 
-            if (!string.IsNullOrEmpty(userFilter.FirstName))
-                _usersList = _usersList.Where(s => s.FirstName.Contains(userFilter.FirstName));
+            if (!string.IsNullOrEmpty(userFilter?.Filter))
+            {
+                var predicate = evaluator.Evaluate(userFilter?.Filter);
+                _usersList = _usersList.Where(predicate);
+            }
 
             var result = _usersList.Skip(userFilter.PageNumber * userFilter.PageSize).Take(userFilter.PageSize).ToList();
 
@@ -67,13 +73,8 @@ namespace REST.API.Controllers
         public int PageNumber { get; set; }
 
         /// <summary>
-        /// Login filter -> login contain text in filter
+        /// Filter in LHS Standard https://github.com/Jalalx/LhsBracketParser
         /// </summary>
-        public string Login { get; set; }
-
-        /// <summary>
-        /// FirstName filter -> user name contain text in filter
-        /// </summary>
-        public string FirstName { get; set; }
+        public string Filter { get; set; }
     }
 }

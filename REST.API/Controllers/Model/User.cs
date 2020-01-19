@@ -9,7 +9,7 @@ namespace REST.API.Controllers.Model
     /// <summary>
     /// Class handle information about user
     /// </summary>
-    public class User
+    public class User:IComparable
     {
         /// <summary>
         /// User id
@@ -108,6 +108,11 @@ namespace REST.API.Controllers.Model
                     LastName = "Kowalski"
                 }
             };
+        }
+
+        public int CompareTo(object obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }
