@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REST.API", "REST.API\REST.API.csproj", "{74A60890-D2D9-4292-A0C7-0FF60617FEC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REST.Domain", "REST.Domain\REST.Domain.csproj", "{E990DBCD-C425-4DDF-A80C-3118376193B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{74A60890-D2D9-4292-A0C7-0FF60617FEC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74A60890-D2D9-4292-A0C7-0FF60617FEC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74A60890-D2D9-4292-A0C7-0FF60617FEC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E990DBCD-C425-4DDF-A80C-3118376193B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E990DBCD-C425-4DDF-A80C-3118376193B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E990DBCD-C425-4DDF-A80C-3118376193B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E990DBCD-C425-4DDF-A80C-3118376193B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
