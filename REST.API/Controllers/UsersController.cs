@@ -14,7 +14,7 @@ namespace REST.API.Controllers
     /// Users
     /// </summary>
     [ApiVersion("1")]    
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
     [SwaggerTag("User controller with PageSize PageNumber")]

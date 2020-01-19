@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using REST.API.SeedWork;
@@ -15,7 +16,7 @@ using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace REST.API
 {
-      /// <summary>
+    /// <summary>
     /// Startup
     /// </summary>
     public class Startup
@@ -39,7 +40,7 @@ namespace REST.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddApiVersioning();
+            services.AddApiVersioning(options => options.ApiVersionReader = new HeaderApiVersionReader("api-version"));
             services.AddVersionedApiExplorer(
                 options =>
                 {
@@ -50,8 +51,8 @@ namespace REST.API
                     // note: this option is only necessary when versioning by url segment. the SubstitutionFormat
                     // can also be used to control the format of the API version in route templates
                     options.SubstituteApiVersionInUrl = true;
-                } );
-            
+                });
+
             services.AddSwaggerGen(swaggerConfig =>
             {
                 // Api description
@@ -63,7 +64,7 @@ namespace REST.API
                     Description = description.Description,
                     Contact = description.Contact
                 });
-                
+
                 swaggerConfig.SwaggerDoc("v2", new Info
                 {
                     Title = description.Title,
@@ -84,7 +85,6 @@ namespace REST.API
                     Name = "Authorization",
                     In = "header",
                     Type = "apiKey",
-
                 });
 
                 //For generate Swagger from comments
@@ -109,20 +109,20 @@ namespace REST.API
             {
                 app.UseHsts();
             }
-            
+
             app.UseHttpsRedirection();
             app.UseMvc();
 
             app.UseSwagger();
             app.UseSwaggerUI(ui =>
             {
-                foreach ( var description in provider.ApiVersionDescriptions )
+                foreach (var description in provider.ApiVersionDescriptions)
                 {
-                    ui.SwaggerEndpoint( $"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant() );
+                    ui.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
                 }
-                
+
                 ui.DocExpansion(DocExpansion.List);
-               // ui.SwaggerEndpoint("/swagger/v1/swagger.json", "V1");
+                // ui.SwaggerEndpoint("/swagger/v1/swagger.json", "V1");
             });
         }
     }
