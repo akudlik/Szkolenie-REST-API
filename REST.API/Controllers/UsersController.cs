@@ -19,7 +19,7 @@ namespace REST.API.Controllers
     [SwaggerTag("User controller with PageSize PageNumber")]
     public class UsersController : ControllerBase
     {
-        private static IEnumerable<User> _usersList = Model.User.GetSampleUsers();
+        private IEnumerable<User> _usersList = Model.User.GetSampleUsers();
 
         /// <summary>
         /// Return all users
@@ -33,6 +33,13 @@ namespace REST.API.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
+            if (!string.IsNullOrEmpty(userFilter.Login))
+                _usersList = _usersList.Where(s => s.Login.Contains(userFilter.Login));
+
+            if (!string.IsNullOrEmpty(userFilter.FirstName))
+                _usersList = _usersList.Where(s => s.FirstName.Contains(userFilter.FirstName));
+
             var result = _usersList.Skip(userFilter.PageNumber * userFilter.PageSize).Take(userFilter.PageSize).ToList();
 
             Response.Headers.Add(new KeyValuePair<string, StringValues>("Count", _usersList.Count().ToString()));
@@ -58,5 +65,15 @@ namespace REST.API.Controllers
         /// </summary>
         [Required]
         public int PageNumber { get; set; }
+
+        /// <summary>
+        /// Login filter -> login contain text in filter
+        /// </summary>
+        public string Login { get; set; }
+
+        /// <summary>
+        /// FirstName filter -> user name contain text in filter
+        /// </summary>
+        public string FirstName { get; set; }
     }
 }

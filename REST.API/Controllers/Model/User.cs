@@ -67,8 +67,8 @@ namespace REST.API.Controllers.Model
                     UserId = 2,
                     Birthday = null,
                     Email = "test@test.pl",
-                    Login = "login",
-                    FirstName = "Jan",
+                    Login = "adriank",
+                    FirstName = "Adrian",
                     LastName = "Kowalski"
                 },
                 new User
@@ -76,8 +76,8 @@ namespace REST.API.Controllers.Model
                     UserId = 3,
                     Birthday = null,
                     Email = "test@test.pl",
-                    Login = "login",
-                    FirstName = "Jan",
+                    Login = "michal.kowalski2",
+                    FirstName = "Michał",
                     LastName = "Kowalski"
                 },
                 new User
@@ -85,8 +85,8 @@ namespace REST.API.Controllers.Model
                     UserId = 4,
                     Birthday = null,
                     Email = "test@test.pl",
-                    Login = "login",
-                    FirstName = "Jan",
+                    Login = "janusz.kowalski",
+                    FirstName = "Janusz",
                     LastName = "Kowalski"
                 },
                 new User
@@ -94,8 +94,8 @@ namespace REST.API.Controllers.Model
                     UserId = 5,
                     Birthday = null,
                     Email = "test@test.pl",
-                    Login = "login",
-                    FirstName = "Jan",
+                    Login = "jan3",
+                    FirstName = "Janek",
                     LastName = "Kowalski"
                 },
                 new User
@@ -103,8 +103,8 @@ namespace REST.API.Controllers.Model
                     UserId = 6,
                     Birthday = null,
                     Email = "test@test.pl",
-                    Login = "login",
-                    FirstName = "Jan",
+                    Login = "barbara123",
+                    FirstName = "Barbara",
                     LastName = "Kowalski"
                 }
             };
