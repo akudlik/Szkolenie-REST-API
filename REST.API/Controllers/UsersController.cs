@@ -33,7 +33,7 @@ namespace REST.API.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var result = _usersList.Skip(userFilter.PageNumber * userFilter.PageSize).Take(userFilter.PageSize).ToList();
+            var result = _usersList.Skip(userFilter.Offset).Take(userFilter.Limit).ToList();
 
             Response.Headers.Add(new KeyValuePair<string, StringValues>("Count", _usersList.Count().ToString()));
 
@@ -51,12 +51,12 @@ namespace REST.API.Controllers
         /// </summary>
         [Required]
         [Range(1, 100)]
-        public int PageSize { get; set; }
+        public int Limit { get; set; }
 
         /// <summary>
-        /// Number of page
+        /// Number of item to skip
         /// </summary>
         [Required]
-        public int PageNumber { get; set; }
+        public int Offset { get; set; }
     }
 }
