@@ -6,6 +6,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using REST.API.Controllers.Model;
+using REST.API.SeedWork;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace REST.API.Controllers
@@ -36,8 +37,12 @@ namespace REST.API.Controllers
             var result = _usersList.Skip(userFilter.PageNumber * userFilter.PageSize).Take(userFilter.PageSize).ToList();
 
             Response.Headers.Add(new KeyValuePair<string, StringValues>("Count", _usersList.Count().ToString()));
-
-            return Ok(result);
+            var pageInfo = new PaginationLink(Url,"GetAllUsersPageSize", userFilter.PageNumber, userFilter.PageSize, _usersList.Count());
+            return Ok(new
+            {
+                result,
+                pageInfo
+            });
         }
     }
 
