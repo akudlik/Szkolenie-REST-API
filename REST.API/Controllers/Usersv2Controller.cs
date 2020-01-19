@@ -9,7 +9,7 @@ namespace REST.API.Controllers
     /// Users
     /// </summary>
     [ApiVersion("2")]
-    [Route("api/Users")]
+    [Route("api/v{version:apiVersion}/Users")]
     [Produces("application/json")]
     [ApiController]
     [SwaggerTag("User controller with PageSize PageNumber")]
