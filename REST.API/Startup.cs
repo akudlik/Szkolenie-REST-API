@@ -6,6 +6,7 @@ using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using REST.API.SeedWork;
@@ -38,12 +39,32 @@ namespace REST.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-    
+            services.AddApiVersioning();
+            services.AddVersionedApiExplorer(
+                options =>
+                {
+                    // add the versioned api explorer, which also adds IApiVersionDescriptionProvider service
+                    // note: the specified format code will format the version as "'v'major[.minor][-status]"
+                    options.GroupNameFormat = "'v'VVV";
+
+                    // note: this option is only necessary when versioning by url segment. the SubstitutionFormat
+                    // can also be used to control the format of the API version in route templates
+                    options.SubstituteApiVersionInUrl = true;
+                } );
+            
             services.AddSwaggerGen(swaggerConfig =>
             {
                 // Api description
                 var description = this.Configuration.GetSection("APIdescription").Get<APIDescription>();
                 swaggerConfig.SwaggerDoc("v1", new Info
+                {
+                    Title = description.Title,
+                    Version = description.Version,
+                    Description = description.Description,
+                    Contact = description.Contact
+                });
+                
+                swaggerConfig.SwaggerDoc("v2", new Info
                 {
                     Title = description.Title,
                     Version = description.Version,
@@ -78,7 +99,7 @@ namespace REST.API
         /// <summary>
         ///  This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         /// </summary>
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApiVersionDescriptionProvider provider)
         {
             if (env.IsDevelopment())
             {
@@ -95,8 +116,13 @@ namespace REST.API
             app.UseSwagger();
             app.UseSwaggerUI(ui =>
             {
+                foreach ( var description in provider.ApiVersionDescriptions )
+                {
+                    ui.SwaggerEndpoint( $"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant() );
+                }
+                
                 ui.DocExpansion(DocExpansion.List);
-                ui.SwaggerEndpoint("/swagger/v1/swagger.json", "V1");
+               // ui.SwaggerEndpoint("/swagger/v1/swagger.json", "V1");
             });
         }
     }

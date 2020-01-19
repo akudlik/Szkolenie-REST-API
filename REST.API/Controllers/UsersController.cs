@@ -13,6 +13,7 @@ namespace REST.API.Controllers
     /// <summary>
     /// Users
     /// </summary>
+    [ApiVersion("1")]    
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
