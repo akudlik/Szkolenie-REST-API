@@ -46,7 +46,9 @@ namespace REST.API
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddXmlSerializerFormatters();
-
+            
+            services.AddResponseCaching();
+            
             services.AddSwaggerGen(swaggerConfig =>
             {
                 // Api description
@@ -95,7 +97,7 @@ namespace REST.API
             {
                 app.UseHsts();
             }
-
+            app.UseResponseCaching();
             app.UseHttpsRedirection();
             app.UseMvc();
 
