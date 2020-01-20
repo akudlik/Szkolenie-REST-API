@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -58,5 +58,12 @@ namespace REST.API.Controllers
         /// </summary>
         [Required]
         public int PageNumber { get; set; }
+        
+        /// <summary>
+        /// Test
+        /// </summary>
+        [Required]
+        [StringLength(50,MinimumLength = 5)]
+        public string Test { get; set; }
     }
 }
