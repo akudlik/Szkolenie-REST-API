@@ -1,0 +1,1015 @@
+{
+	"info": {
+		"_postman_id": "21bd6689-2ead-4e1a-9639-721eda54e657",
+		"name": "Szkolenie REST API",
+		"description": "API stworzone na potrzeby przeprowadzenia szkolenia z REST API\n\nContact Support:\n Name: Adrian Kudlik\n Email: adrian.kudlik115@gmail.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users PageSize - 24",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Users?PageSize=10&PageNumber=0&login=a&Firstname=Jan",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "PageSize",
+									"value": "10"
+								},
+								{
+									"key": "PageNumber",
+									"value": "0"
+								},
+								{
+									"key": "login",
+									"value": "a"
+								},
+								{
+									"key": "Firstname",
+									"value": "Jan"
+								}
+							]
+						},
+						"description": "Returns all users"
+					},
+					"response": [
+						{
+							"name": "Array of all users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Users?PageSize=<integer>&PageNumber=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "PageSize",
+											"value": "<integer>"
+										},
+										{
+											"key": "PageNumber",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n },\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n }\n]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users Offset - 26",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Users?limit=2&offset=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "offset",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Returns all users"
+					},
+					"response": [
+						{
+							"name": "Array of all users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Users?PageSize=<integer>&PageNumber=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "PageSize",
+											"value": "<integer>"
+										},
+										{
+											"key": "PageNumber",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n },\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n }\n]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users Keyset - 30",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Users?limit=2&Created=2020-01-03",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "Created",
+									"value": "2020-01-03"
+								}
+							]
+						},
+						"description": "Returns all users"
+					},
+					"response": [
+						{
+							"name": "Array of all users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Users?PageSize=<integer>&PageNumber=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "PageSize",
+											"value": "<integer>"
+										},
+										{
+											"key": "PageNumber",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n },\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n }\n]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users Seek - 33",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Users?limit=2&afterid=3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "afterid",
+									"value": "3"
+								}
+							]
+						},
+						"description": "Returns all users"
+					},
+					"response": [
+						{
+							"name": "Array of all users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Users?PageSize=<integer>&PageNumber=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "PageSize",
+											"value": "<integer>"
+										},
+										{
+											"key": "PageNumber",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n },\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n }\n]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users Basic filter - 41",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Users?PageSize=2&PageNumber=0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "PageSize",
+									"value": "2"
+								},
+								{
+									"key": "PageNumber",
+									"value": "0"
+								}
+							]
+						},
+						"description": "Returns all users"
+					},
+					"response": [
+						{
+							"name": "Array of all users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Users?PageSize=<integer>&PageNumber=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "PageSize",
+											"value": "<integer>"
+										},
+										{
+											"key": "PageNumber",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n },\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n }\n]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users LHS filter - 45",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Users?PageSize=2&PageNumber=0&Filter=firstName[eq]Jan",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "PageSize",
+									"value": "2"
+								},
+								{
+									"key": "PageNumber",
+									"value": "0"
+								},
+								{
+									"key": "Filter",
+									"value": "firstName[eq]Jan"
+								}
+							]
+						},
+						"description": "Returns all users"
+					},
+					"response": [
+						{
+							"name": "Array of all users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Users?PageSize=<integer>&PageNumber=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "PageSize",
+											"value": "<integer>"
+										},
+										{
+											"key": "PageNumber",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n },\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n }\n]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users Sort - 52",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Users?limit=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Returns all users"
+					},
+					"response": [
+						{
+							"name": "Array of all users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Users?PageSize=<integer>&PageNumber=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "PageSize",
+											"value": "<integer>"
+										},
+										{
+											"key": "PageNumber",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n },\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n }\n]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users Test - 87",
+			"item": [
+				{
+					"name": "Get all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "82cc052a-3c5b-40f5-af09-0bb30b7e3bea",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Users?PageSize=20&PageNumber=0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "PageSize",
+									"value": "20"
+								},
+								{
+									"key": "PageNumber",
+									"value": "0"
+								}
+							]
+						},
+						"description": "Returns all users"
+					},
+					"response": [
+						{
+							"name": "Array of all users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Users?PageSize=<integer>&PageNumber=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "PageSize",
+											"value": "<integer>"
+										},
+										{
+											"key": "PageNumber",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n },\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n }\n]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users Content Type - 94",
+			"item": [
+				{
+					"name": "Get all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "82cc052a-3c5b-40f5-af09-0bb30b7e3bea",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Users?PageSize=20&PageNumber=0&Test=asvadas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "PageSize",
+									"value": "20"
+								},
+								{
+									"key": "PageNumber",
+									"value": "0"
+								},
+								{
+									"key": "Test",
+									"value": "asvadas"
+								}
+							]
+						},
+						"description": "Returns all users"
+					},
+					"response": [
+						{
+							"name": "Array of all users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Users?PageSize=<integer>&PageNumber=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "PageSize",
+											"value": "<integer>"
+										},
+										{
+											"key": "PageNumber",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n },\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n }\n]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users Cache",
+			"item": [
+				{
+					"name": "Get all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "82cc052a-3c5b-40f5-af09-0bb30b7e3bea",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+							},
+							{
+								"key": "If-Match",
+								"value": "5593fe938124c719060d611983c825747c6cbdbb1dc779a5b92sd4bb7be813f29",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Users?PageSize=20&PageNumber=0&Test=asvadas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "PageSize",
+									"value": "20"
+								},
+								{
+									"key": "PageNumber",
+									"value": "0"
+								},
+								{
+									"key": "Test",
+									"value": "asvadas"
+								}
+							]
+						},
+						"description": "Returns all users"
+					},
+					"response": [
+						{
+							"name": "Array of all users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Users?PageSize=<integer>&PageNumber=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "PageSize",
+											"value": "<integer>"
+										},
+										{
+											"key": "PageNumber",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n },\n {\n  \"userId\": \"<integer>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthday\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"login\": \"<string>\"\n }\n]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
