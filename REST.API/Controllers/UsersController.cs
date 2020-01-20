@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,7 +19,7 @@ namespace REST.API.Controllers
     [SwaggerTag("User controller with PageSize PageNumber")]
     public class UsersController : ControllerBase
     {
-        private static IEnumerable<User> _usersList = Model.User.GetSampleUsers();
+        public static IEnumerable<User> usersList = Model.User.GetSampleUsers();
 
         /// <summary>
         /// Return all users
@@ -33,9 +33,9 @@ namespace REST.API.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var result = _usersList.Skip(userFilter.PageNumber * userFilter.PageSize).Take(userFilter.PageSize).ToList();
+            var result = usersList.Skip(userFilter.PageNumber * userFilter.PageSize).Take(userFilter.PageSize).ToList();
 
-            Response.Headers.Add(new KeyValuePair<string, StringValues>("Count", _usersList.Count().ToString()));
+            Response.Headers.Add(new KeyValuePair<string, StringValues>("Count", usersList.Count().ToString()));
 
             return Ok(result);
         }
