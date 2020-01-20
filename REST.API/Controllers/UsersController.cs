@@ -33,6 +33,7 @@ namespace REST.API.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+            
             var result = usersList.Skip(userFilter.PageNumber * userFilter.PageSize).Take(userFilter.PageSize).ToList();
 
             Response.Headers.Add(new KeyValuePair<string, StringValues>("Count", usersList.Count().ToString()));
