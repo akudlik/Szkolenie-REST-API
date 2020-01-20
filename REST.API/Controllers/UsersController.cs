@@ -14,7 +14,7 @@ namespace REST.API.Controllers
     /// Users
     /// </summary>
     [Route("api/[controller]")]
-    [Produces("application/json")]
+    [Produces("application/json","application/xml","application/x-yaml")]
     [ApiController]
     [SwaggerTag("User controller with PageSize PageNumber")]
     public class UsersController : ControllerBase

@@ -11,10 +11,11 @@ using Microsoft.Extensions.DependencyInjection;
 using REST.API.SeedWork;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using WebApiContrib.Core.Formatter.Yaml;
 
 namespace REST.API
 {
-      /// <summary>
+    /// <summary>
     /// Startup
     /// </summary>
     public class Startup
@@ -37,8 +38,15 @@ namespace REST.API
         /// </summary>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-    
+            services.AddMvc(options =>
+            {
+                options.InputFormatters.Add(new YamlInputFormatter(new YamlFormatterOptions()));
+                options.OutputFormatters.Add(new YamlOutputFormatter(new YamlFormatterOptions()));
+                options.RespectBrowserAcceptHeader = true; 
+            });
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddXmlSerializerFormatters();
+
             services.AddSwaggerGen(swaggerConfig =>
             {
                 // Api description
@@ -63,7 +71,6 @@ namespace REST.API
                     Name = "Authorization",
                     In = "header",
                     Type = "apiKey",
-
                 });
 
                 //For generate Swagger from comments
@@ -88,7 +95,7 @@ namespace REST.API
             {
                 app.UseHsts();
             }
-            
+
             app.UseHttpsRedirection();
             app.UseMvc();
 
